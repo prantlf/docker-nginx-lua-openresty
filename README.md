@@ -26,12 +26,26 @@ docker pull prantlf/nginx-lua-openresty
 
 ## Use
 
-You can start by serving a web application consisting of static assets:
+You can serve a web application consisting of both [Lua Pages] and static assets:
 
     cd ~/my-web-application
     docker run --rm -it -p 80:80 -v "${PWD}/www":/app nginx-lua-openresty
 
-Then you continue by allowing [Lua Pages] to be authored:
+You can add locations to `server2.conf` to serve REST API or other dynamic content. If you need a global initialization code, you can add it to a file included in the `http` context. Then you need to pass the files to the container as volumes:
+
+    cd ~/my-web-application
+    docker run --rm -it -p 80:80 -v "${PWD}/www":/app \
+      -v "${PWD}/conf/http2.conf":/usr/local/openresty/nginx/conf/http2.conf
+      -v "${PWD}/conf/server2.conf":/usr/local/openresty/nginx/conf/server2.conf \
+      nginx-lua-openresty
+
+Default content of `http2.conf`:
+
+    init_by_lua_block {
+      template = require "resty.template"
+    }
+
+Default content of `server2.conf`:
 
     location ~ ^(.+\.lsp)(?:\?[^?]*)?$ {
       default_type text/html;
@@ -41,26 +55,6 @@ Then you continue by allowing [Lua Pages] to be authored:
         template.render_file(ngx.var.page)
       }
     }
-
-That configuration will need to be saved to a file and included in the `server` context of the Nginx configuration:
-
-    cd ~/my-web-application
-    docker run --rm -it -p 80:80 -v "${PWD}/www":/app \
-      -v "${PWD}/conf/server2.conf":/usr/local/openresty/nginx/conf/server2.conf \
-      nginx-lua-openresty
-
-You can ad other locations to `server2.conf` to server REST API or other dynamic content. If you need a global initialization code, you can add it to a file included in the `http` context, for example:
-
-    # saved to conf/http2.conf
-    init_by_lua_block {
-      ...
-    }
-
-    cd ~/my-web-application
-    docker run --rm -it -p 80:80 -v "${PWD}/www":/app \
-      -v "${PWD}/conf/http2.conf":/usr/local/openresty/nginx/conf/http2.conf
-      -v "${PWD}/conf/server2.conf":/usr/local/openresty/nginx/conf/server2.conf \
-      nginx-lua-openresty
 
 This image allows adding custom configuration to three Nginx contexts by replacing three files using volumes:
 
@@ -94,7 +88,11 @@ Enter an interactive shell inside the created image:
 
     make run
 
-Test a sample web application:
+Test a default web application:
+
+    make serve
+
+Test a customized web application:
 
     make example
 

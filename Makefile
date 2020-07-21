@@ -13,6 +13,9 @@ build ::
 run ::
 	docker run --rm -it --entrypoint=busybox nginx-lua-openresty sh
 
+serve ::
+	docker run --rm -it -p 80:80 -v "${PWD}/example/www":/app nginx-lua-openresty
+
 example ::
 	docker run --rm -it -p 80:80 -v "${PWD}/example/www":/app \
 		-v "${PWD}/example/conf/htto2.conf":/usr/local/openresty/nginx/conf/http2.conf \
