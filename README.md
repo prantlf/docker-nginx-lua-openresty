@@ -9,7 +9,10 @@
 Lua packages included:
 
 * [luafilesystem]
+* [lua-resty-libbase64]
+* [lua-resty-murmurhash2]
 * [lua-resty-template]
+* [lua-resty-uuid]
 
 ## Tags
 
@@ -121,4 +124,7 @@ Licensed under the MIT license.
 [Alpine Linux]: https://alpinelinux.org/
 [Lua Pages]: https://github.com/bungle/lua-resty-template#example
 [luafilesystem]: https://github.com/spacewander/luafilesystem#readme
+[lua-resty-libbase64]: https://github.com/bungle/lua-resty-libbase64
+[lua-resty-murmurhash2]: https://github.com/bungle/lua-resty-murmurhash2
 [lua-resty-template]: https://github.com/bungle/lua-resty-template#readme
+[lua-resty-uuid]: https://github.com/bungle/lua-resty-uuid
