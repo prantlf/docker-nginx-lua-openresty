@@ -11,10 +11,12 @@ Additional Lua packages included:
 * [lsqlite3complete] - sqlite3 suport
 * [luafilesystem] - directory listing and file locking
 * [lua-resty-cors] - cross-origin request support
+* [lua-resty-gettext] - internationalisation support
 * [lua-resty-hmac] - required by lua-resty-jwt``
 * [lua-resty-jwt] - secure session tokens
 * [lua-resty-libbase64] - fast base64 encoding and decoding
 * [lua-resty-libr3] - fast router
+* [lua-resty-mail] - smtp library
 * [lua-resty-murmurhash2] - fast hashes
 * [lua-resty-random] - secure random numbers
 * [lua-resty-session] - cookie-based sessions
@@ -132,10 +134,12 @@ Licensed under the MIT license.
 [lsqlite3complete]: http://lua.sqlite.org/
 [luafilesystem]: https://github.com/spacewander/luafilesystem#readme
 [lua-resty-cors]: https://github.com/detailyang/lua-resty-cors
+[lua-resty-gettext]: https://github.com/bungle/lua-resty-gettext
 [lua-resty-hmac]: https://github.com/jkeys089/lua-resty-hmac
 [lua-resty-jwt]: https://github.com/cdbattags/lua-resty-jwt
 [lua-resty-libbase64]: https://github.com/bungle/lua-resty-libbase64
 [lua-resty-libr3]: https://github.com/iresty/lua-resty-libr3
+[lua-resty-mail]: https://github.com/GUI/lua-resty-mail
 [lua-resty-murmurhash2]: https://github.com/bungle/lua-resty-murmurhash2
 [lua-resty-random]: https://github.com/bungle/lua-resty-random
 [lua-resty-session]: https://github.com/bungle/lua-resty-session

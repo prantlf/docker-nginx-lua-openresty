@@ -58,9 +58,10 @@ ARG OPENRESTY_REPO="http://openresty.org/package/alpine/v${ALPINE_VER}/main"
 RUN wget -O "/etc/apk/keys/$(basename ${OPENRESTY_KEY})" "${OPENRESTY_KEY}" && \
     echo "${OPENRESTY_REPO}" >> /etc/apk/repositories && \
     apk --no-cache add openresty openresty-opm libuuid && \
-    opm get spacewander/luafilesystem bungle/lua-resty-template jkeys089/lua-resty-hmac cdbattags/lua-resty-jwt detailyang/lua-resty-cors bungle/lua-resty-session leafo/pgmoon && \
+    opm get spacewander/luafilesystem bungle/lua-resty-template jkeys089/lua-resty-hmac cdbattags/lua-resty-jwt detailyang/lua-resty-cors bungle/lua-resty-session leafo/pgmoon GUI/lua-resty-mail && \
     apk del openresty-opm && \
     rm -r /root/.opmrc /root/.opm /usr/local/openresty/site/pod /usr/local/openresty/site/manifest && \
+    wget -O /usr/local/openresty/lualib/resty/gettext.lua https://raw.githubusercontent.com/bungle/lua-resty-gettext/master/lib/resty/gettext.lua && \
     wget -O /usr/local/openresty/lualib/resty/libbase64.lua https://raw.githubusercontent.com/bungle/lua-resty-libbase64/master/lib/resty/libbase64.lua && \
     wget -O /usr/local/openresty/lualib/resty/murmurhash2.lua https://raw.githubusercontent.com/bungle/lua-resty-murmurhash2/v1.0/lib/resty/murmurhash2.lua && \
     wget -O /usr/local/openresty/lualib/resty/random.lua https://raw.githubusercontent.com/bungle/lua-resty-random/master/lib/resty/random.lua && \
