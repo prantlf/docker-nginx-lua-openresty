@@ -8,11 +8,16 @@
 
 Lua packages included:
 
-* [luafilesystem]
-* [lua-resty-libbase64]
-* [lua-resty-murmurhash2]
-* [lua-resty-template]
-* [lua-resty-uuid]
+* [luafilesystem] - directory listing and file locking
+* [lua-resty-cors] - cross-origin request support
+* [lua-resty-hmac] - required by lua-resty-jwt``
+* [lua-resty-jwt] - secure session tokens
+* [lua-resty-libbase64] - fast base64 encoding and decoding
+* [lua-resty-libr3] - fast router
+* [lua-resty-murmurhash2] - fast hashes
+* [lua-resty-random] - secure random numbers
+* [lua-resty-template] - page templates
+* [lua-resty-uuid] - safe unique identifiers
 
 ## Tags
 
@@ -122,7 +127,12 @@ Licensed under the MIT license.
 [Alpine Linux]: https://alpinelinux.org/
 [Lua Pages]: https://github.com/bungle/lua-resty-template#example
 [luafilesystem]: https://github.com/spacewander/luafilesystem#readme
+[lua-resty-cors]: https://github.com/detailyang/lua-resty-cors
+[lua-resty-hmac]: https://github.com/jkeys089/lua-resty-hmac
+[lua-resty-jwt]: https://github.com/SkyLothar/lua-resty-jwt
 [lua-resty-libbase64]: https://github.com/bungle/lua-resty-libbase64
+[lua-resty-libr3]: https://github.com/iresty/lua-resty-libr3
 [lua-resty-murmurhash2]: https://github.com/bungle/lua-resty-murmurhash2
+[lua-resty-random]: https://github.com/bungle/lua-resty-random
 [lua-resty-template]: https://github.com/bungle/lua-resty-template#readme
 [lua-resty-uuid]: https://github.com/bungle/lua-resty-uuid

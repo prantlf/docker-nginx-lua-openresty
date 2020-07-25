@@ -18,7 +18,7 @@ serve ::
 
 example ::
 	docker run --rm -it -p 80:80 -v "${PWD}/example/www":/app \
-		-v "${PWD}/example/conf/htto2.conf":/usr/local/openresty/nginx/conf/http2.conf \
+		-v "${PWD}/example/conf/http2.conf":/usr/local/openresty/nginx/conf/http2.conf \
 		-v "${PWD}/example/conf/server2.conf":/usr/local/openresty/nginx/conf/server2.conf \
 		nginx-lua-openresty
 
