@@ -4,7 +4,7 @@
 
 [![prantlf/nginx-lua-openresty](http://dockeri.co/image/prantlf/nginx-lua-openresty)](https://hub.docker.com/repository/docker/prantlf/nginx-lua-openresty/)
 
-[This image] is supposed to run web applications using static assets and dynamic requests coded in [Lua] or as [Lua Pages]. This image is built automatically on the top of the tag `latest` from the [Alpine repository], so that it is always based on the latest [Alpine Linux]. The package [openresty] has to be updated from time to time by triggering a new build manually.
+[This image] is supposed to run web applications using static assets and dynamic requests coded in [Lua] or as [Lua Pages]. This image is built automatically on the top of the tag `latest` from the [Alpine repository], so that it is always based on the latest [Alpine Linux]. Packages [openresty], `libuuid` and `tzdata` have to be updated from time to time by triggering a new build manually.
 
 Additional Lua packages included:
 
