@@ -6,8 +6,9 @@
 
 [This image] is supposed to run web applications using static assets and dynamic requests coded in [Lua] or as [Lua Pages]. This image is built automatically on the top of the tag `latest` from the [Alpine repository], so that it is always based on the latest [Alpine Linux]. The package [openresty] has to be updated from time to time by triggering a new build manually.
 
-Lua packages included:
+Additional Lua packages included:
 
+* [lsqlite3complete] - sqlite3 suport
 * [luafilesystem] - directory listing and file locking
 * [lua-resty-cors] - cross-origin request support
 * [lua-resty-hmac] - required by lua-resty-jwt``
@@ -19,6 +20,7 @@ Lua packages included:
 * [lua-resty-session] - cookie-based sessions
 * [lua-resty-template] - page templates
 * [lua-resty-uuid] - safe unique identifiers
+* [pgmoon] - postgres support
 
 ## Tags
 
@@ -127,10 +129,11 @@ Licensed under the MIT license.
 [Alpine repository]: https://hub.docker.com/_/alpine
 [Alpine Linux]: https://alpinelinux.org/
 [Lua Pages]: https://github.com/bungle/lua-resty-template#example
+[lsqlite3complete]: http://lua.sqlite.org/
 [luafilesystem]: https://github.com/spacewander/luafilesystem#readme
 [lua-resty-cors]: https://github.com/detailyang/lua-resty-cors
 [lua-resty-hmac]: https://github.com/jkeys089/lua-resty-hmac
-[lua-resty-jwt]: https://github.com/SkyLothar/lua-resty-jwt
+[lua-resty-jwt]: https://github.com/cdbattags/lua-resty-jwt
 [lua-resty-libbase64]: https://github.com/bungle/lua-resty-libbase64
 [lua-resty-libr3]: https://github.com/iresty/lua-resty-libr3
 [lua-resty-murmurhash2]: https://github.com/bungle/lua-resty-murmurhash2
@@ -138,3 +141,4 @@ Licensed under the MIT license.
 [lua-resty-session]: https://github.com/bungle/lua-resty-session
 [lua-resty-template]: https://github.com/bungle/lua-resty-template#readme
 [lua-resty-uuid]: https://github.com/bungle/lua-resty-uuid
+[pgmoon]: https://github.com/leafo/pgmoon
