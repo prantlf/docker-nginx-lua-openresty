@@ -16,6 +16,7 @@ Lua packages included:
 * [lua-resty-libr3] - fast router
 * [lua-resty-murmurhash2] - fast hashes
 * [lua-resty-random] - secure random numbers
+* [lua-resty-session] - cookie-based sessions
 * [lua-resty-template] - page templates
 * [lua-resty-uuid] - safe unique identifiers
 
@@ -134,5 +135,6 @@ Licensed under the MIT license.
 [lua-resty-libr3]: https://github.com/iresty/lua-resty-libr3
 [lua-resty-murmurhash2]: https://github.com/bungle/lua-resty-murmurhash2
 [lua-resty-random]: https://github.com/bungle/lua-resty-random
+[lua-resty-session]: https://github.com/bungle/lua-resty-session
 [lua-resty-template]: https://github.com/bungle/lua-resty-template#readme
 [lua-resty-uuid]: https://github.com/bungle/lua-resty-uuid
