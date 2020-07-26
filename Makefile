@@ -10,8 +10,16 @@ lint ::
 build ::
 	docker build -t nginx-lua-openresty .
 
+shell ::
+	docker run --rm -it --entrypoint=busybox --expose=8172 -p 8172:8172 \
+		-e LUA_PATH="?.lua;/usr/local/openresty/lualib/?.lua;/usr/local/openresty/lualib/?/?.lua;/usr/local/openresty/site/lualib/?.lua;/usr/local/openresty/site/lualib/?/?.lua" \
+		-v "${PWD}/example":/app nginx-lua-openresty sh
+
 run ::
-	docker run --rm -it --entrypoint=busybox nginx-lua-openresty sh
+	docker run --rm -it --entrypoint=luajit --expose=8172 -p 80:80 -p 8172:8172 \
+		-e LUA_PATH="?.lua;/usr/local/openresty/lualib/?.lua;/usr/local/openresty/lualib/?/?.lua;/usr/local/openresty/site/lualib/?.lua;/usr/local/openresty/site/lualib/?/?.lua" \
+		-v "${PWD}/example":/app nginx-lua-openresty
+		# -e "require('mobdebug').listen()"
 
 serve ::
 	docker run --rm -it -p 80:80 -v "${PWD}/example/www":/app nginx-lua-openresty

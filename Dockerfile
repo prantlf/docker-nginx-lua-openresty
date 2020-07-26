@@ -40,11 +40,24 @@ RUN wget -O "/etc/apk/keys/$(basename ${OPENRESTY_KEY})" "${OPENRESTY_KEY}" && \
     cd lsqlite3_fsl09y && \
     luarocks make lsqlite3complete-0.9.5-1.rockspec && \
     cd .. && \
-    mkdir -p usr/local/lib usr/local/openresty/lualib/resty && \
+    wget https://github.com/diegonehab/luasocket/archive/v3.0-rc1.tar.gz && \
+    tar xf v3.0-rc1.tar.gz && rm v3.0-rc1.tar.gz && \
+    cd luasocket-3.0-rc1 && \
+    luarocks make luasocket-scm-0.rockspec && \
+    cd .. && \
+    wget https://github.com/daurnimator/luatz/archive/v0.4-1.tar.gz && \
+    tar xf v0.4-1.tar.gz && rm v0.4-1.tar.gz && \
+    mkdir -p usr/local/lib usr/local/openresty/lualib/resty usr/local/openresty/luajit/lib/lua/5.1 && \
     cp base64-0.4.0/lib/libbase64.so usr/local/lib/ && \
     cp lua-resty-libr3-1.2/libr3.so usr/local/openresty/lualib/ && \
     cp lua-resty-libr3-1.2/lib/resty/*.lua usr/local/openresty/lualib/resty/ && \
-    cp lsqlite3_fsl09y/lsqlite3complete.so usr/local/openresty/lualib/
+    cp lsqlite3_fsl09y/lsqlite3complete.so usr/local/openresty/lualib/ && \
+    cp -r /usr/local/openresty/luajit/share/lua/5.1/socket* usr/local/openresty/lualib/ && \
+    cp -r luasocket-3.0-rc1/socket* usr/local/openresty/luajit/lib/lua/5.1/ && \
+    cp /usr/local/openresty/luajit/share/lua/5.1/mime.lua usr/local/openresty/lualib/ && \
+    cp -r luasocket-3.0-rc1/mime* usr/local/openresty/luajit/lib/lua/5.1/ && \
+    cp /usr/local/openresty/luajit/share/lua/5.1/ltn12.lua usr/local/openresty/lualib/ && \
+    cp -r luatz-0.4-1/luatz usr/local/openresty/lualib/
 
 ARG ALPINE_VER="3.12"
 FROM alpine:${ALPINE_VER}
@@ -60,10 +73,12 @@ RUN wget -O "/etc/apk/keys/$(basename ${OPENRESTY_KEY})" "${OPENRESTY_KEY}" && \
     opm get spacewander/luafilesystem bungle/lua-resty-template jkeys089/lua-resty-hmac cdbattags/lua-resty-jwt detailyang/lua-resty-cors bungle/lua-resty-session leafo/pgmoon GUI/lua-resty-mail && \
     apk del openresty-opm && \
     rm -r /root/.opmrc /root/.opm /usr/local/openresty/site/pod /usr/local/openresty/site/manifest && \
+    wget -O /usr/local/openresty/lualib/mobdebug.lua https://raw.githubusercontent.com/pkulchenko/MobDebug/master/src/mobdebug.lua && \
     wget -O /usr/local/openresty/lualib/resty/gettext.lua https://raw.githubusercontent.com/bungle/lua-resty-gettext/master/lib/resty/gettext.lua && \
     wget -O /usr/local/openresty/lualib/resty/libbase64.lua https://raw.githubusercontent.com/bungle/lua-resty-libbase64/master/lib/resty/libbase64.lua && \
     wget -O /usr/local/openresty/lualib/resty/murmurhash2.lua https://raw.githubusercontent.com/bungle/lua-resty-murmurhash2/v1.0/lib/resty/murmurhash2.lua && \
     wget -O /usr/local/openresty/lualib/resty/random.lua https://raw.githubusercontent.com/bungle/lua-resty-random/master/lib/resty/random.lua && \
+    wget -O /usr/local/openresty/lualib/resty/socket.lua https://raw.githubusercontent.com/thibaultcha/lua-resty-socket/master/lib/resty/socket.lua && \
     wget -O /usr/local/openresty/lualib/resty/uuid.lua https://raw.githubusercontent.com/bungle/lua-resty-uuid/v1.1/lib/resty/uuid.lua
 COPY --from=builder /root/usr /usr/
 COPY . /

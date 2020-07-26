@@ -10,6 +10,8 @@ Additional Lua packages included:
 
 * [lsqlite3complete] - sqlite3 suport
 * [luafilesystem] - directory listing and file locking
+* [LuaSocket] - tcp/udp socket network support
+* [luatz] - time zone support
 * [lua-resty-cors] - cross-origin request support
 * [lua-resty-gettext] - internationalisation support
 * [lua-resty-hmac] - required by lua-resty-jwt``
@@ -20,8 +22,10 @@ Additional Lua packages included:
 * [lua-resty-murmurhash2] - fast hashes
 * [lua-resty-random] - secure random numbers
 * [lua-resty-session] - cookie-based sessions
+* [lua-resty-socket] - cosocket compatibility fallback
 * [lua-resty-template] - page templates
 * [lua-resty-uuid] - safe unique identifiers
+* [MobDebug] - remote debugging support
 * [pgmoon] - postgres support
 
 ## Tags
@@ -133,6 +137,8 @@ Licensed under the MIT license.
 [Lua Pages]: https://github.com/bungle/lua-resty-template#example
 [lsqlite3complete]: http://lua.sqlite.org/
 [luafilesystem]: https://github.com/spacewander/luafilesystem#readme
+[LuaSocket]: https://github.com/diegonehab/luasocket
+[luatz]: https://github.com/daurnimator/luatz
 [lua-resty-cors]: https://github.com/detailyang/lua-resty-cors
 [lua-resty-gettext]: https://github.com/bungle/lua-resty-gettext
 [lua-resty-hmac]: https://github.com/jkeys089/lua-resty-hmac
@@ -143,6 +149,8 @@ Licensed under the MIT license.
 [lua-resty-murmurhash2]: https://github.com/bungle/lua-resty-murmurhash2
 [lua-resty-random]: https://github.com/bungle/lua-resty-random
 [lua-resty-session]: https://github.com/bungle/lua-resty-session
+[lua-resty-socket]: https://github.com/thibaultcha/lua-resty-socket
 [lua-resty-template]: https://github.com/bungle/lua-resty-template#readme
 [lua-resty-uuid]: https://github.com/bungle/lua-resty-uuid
+[MobDebug]: https://github.com/pkulchenko/MobDebug
 [pgmoon]: https://github.com/leafo/pgmoon
