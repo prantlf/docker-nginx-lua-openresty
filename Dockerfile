@@ -1,7 +1,7 @@
-ARG ALPINE_VER="3.12"
+ARG ALPINE_VER="3.15"
 FROM prantlf/alpine-make-gcc:${ALPINE_VER} as builder
 
-ARG ALPINE_VER="3.12"
+ARG ALPINE_VER="3.15"
 ARG OPENRESTY_KEY="http://openresty.org/package/admin@openresty.com-5ea678a6.rsa.pub"
 ARG OPENRESTY_REPO="http://openresty.org/package/alpine/v${ALPINE_VER}/main"
 
@@ -59,11 +59,11 @@ RUN wget -O "/etc/apk/keys/$(basename ${OPENRESTY_KEY})" "${OPENRESTY_KEY}" && \
     cp /usr/local/openresty/luajit/share/lua/5.1/ltn12.lua usr/local/openresty/lualib/ && \
     cp -r luatz-0.4-1/luatz usr/local/openresty/lualib/
 
-ARG ALPINE_VER="3.12"
+ARG ALPINE_VER="3.15"
 FROM alpine:${ALPINE_VER}
 LABEL maintainer="Ferdinand Prantl <prantlf@gmail.com>"
 
-ARG ALPINE_VER="3.12"
+ARG ALPINE_VER="3.15"
 ARG OPENRESTY_KEY="http://openresty.org/package/admin@openresty.com-5ea678a6.rsa.pub"
 ARG OPENRESTY_REPO="http://openresty.org/package/alpine/v${ALPINE_VER}/main"
 
